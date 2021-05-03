@@ -1,8 +1,8 @@
-#test read
+# test read
 
 http://localhost/planet-express/api/deliveries/read.php
 
-#test write
+# test write
 
 post to create.php
 {
