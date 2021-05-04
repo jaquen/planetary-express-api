@@ -35,10 +35,7 @@ class Delivery{
     function create(){
     
         // query to insert record
-        $query = "INSERT INTO
-                    " . $this->table_name . "
-                SET
-                    captain=:captain, ship=:ship, destination=:destination, completed=:completed";
+        $query = "INSERT INTO " . $this->table_name . " SET captain=:captain, ship=:ship, destination=:destination, completed=:completed";
     
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -62,6 +59,31 @@ class Delivery{
     
         return false;
         
+    }
+
+    // used when filling up the update delivery form
+    function readOne(){
+    
+        // query to read single record
+        $query = "SELECT * FROM " . $this->table_name . " WHERE tbl_deliveries.id = ?";
+    
+        // prepare query statement
+        $stmt = $this->conn->prepare( $query );
+    
+        // bind id of delivery to be updated
+        $stmt->bindParam(1, $this->id);
+    
+        // execute query
+        $stmt->execute();
+    
+        // get retrieved row
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        // set values to object properties
+        $this->captain = $row['captain'];
+        $this->ship = $row['ship'];
+        $this->destination = $row['destination'];
+        $this->completed = $row['completed'];
     }
 }
 ?>
