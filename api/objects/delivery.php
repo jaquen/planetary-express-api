@@ -85,5 +85,20 @@ class Delivery{
         $this->destination = $row['destination'];
         $this->completed = $row['completed'];
     }
+
+    function deliveryCount(){
+    
+        // select all query
+        $query = "SELECT id FROM " . $this->table_name . " WHERE tbl_deliveries.captain = ?";
+    
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->captain);
+    
+        // execute query
+        $stmt->execute();
+    
+        return $stmt;
+    }
 }
 ?>
