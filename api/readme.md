@@ -1,4 +1,4 @@
-## note: this project is not intended for productin use
+## note: this project is not intended for production use
 
 # test read
 
