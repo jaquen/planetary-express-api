@@ -1,3 +1,5 @@
+## note: this project is not intended for productin use
+
 # test read
 
 http://localhost/planet-express/api/deliveries/read.php
@@ -11,4 +13,6 @@ post to create.php
     "destination": "Jupiter",
     "completed": "1"
 }
+
+# misc
 
